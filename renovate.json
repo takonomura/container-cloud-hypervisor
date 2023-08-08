@@ -9,5 +9,25 @@
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     }
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "CLOUD_HYPERVISOR_VERSION=(?<currentValue>v[0-9.]+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "lookupNameTemplate": "cloud-hypervisor/cloud-hypervisor",
+      "depNameTemplate": "cloud-hypervisor"
+    },
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "FIRMWARE_VERSION=(?<currentValue>[0-9.]+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "lookupNameTemplate": "cloud-hypervisor/rust-hypervisor-firmware",
+      "depNameTemplate": "rust-hypervisor-firmware"
+    }
   ]
 }
