@@ -5,7 +5,7 @@ RUN apk add --no-cache curl
 ARG FIRMWARE_VERSION=0.4.2
 RUN curl -sSLO https://github.com/cloud-hypervisor/rust-hypervisor-firmware/releases/download/${FIRMWARE_VERSION}/hypervisor-fw
 
-ARG CLOUD_HYPERVISOR_VERSION=v39.0
+ARG CLOUD_HYPERVISOR_VERSION=v40.0
 RUN curl -sSLo cloud-hypervisor https://github.com/cloud-hypervisor/cloud-hypervisor/releases/download/${CLOUD_HYPERVISOR_VERSION}/cloud-hypervisor-static && chmod +x cloud-hypervisor
 RUN curl -sSLo ch-remote https://github.com/cloud-hypervisor/cloud-hypervisor/releases/download/${CLOUD_HYPERVISOR_VERSION}/ch-remote-static && chmod +x ch-remote
 
