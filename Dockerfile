@@ -2,7 +2,7 @@ FROM docker.io/library/alpine:3.20.3@sha256:beefdbd8a1da6d2915566fde36db9db0b524
 
 RUN apk add --no-cache curl
 
-ARG FIRMWARE_VERSION=0.4.2
+ARG FIRMWARE_VERSION=0.5.0
 RUN curl -sSLO https://github.com/cloud-hypervisor/rust-hypervisor-firmware/releases/download/${FIRMWARE_VERSION}/hypervisor-fw
 
 ARG CLOUD_HYPERVISOR_VERSION=v42.0
