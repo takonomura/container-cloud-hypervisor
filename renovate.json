@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "platformAutomerge": true,
   "packageRules": [
@@ -10,23 +10,21 @@
       "automerge": true
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": [
-        "CLOUD_HYPERVISOR_VERSION=(?<currentValue>v[0-9.]+)"
-      ],
+      "customType": "regex",
+      "managerFilePatterns": ["/^Dockerfile$/"],
+      "matchStrings": ["CLOUD_HYPERVISOR_VERSION=(?<currentValue>v[0-9.]+)"],
       "datasourceTemplate": "github-releases",
-      "lookupNameTemplate": "cloud-hypervisor/cloud-hypervisor",
+      "packageNameTemplate": "cloud-hypervisor/cloud-hypervisor",
       "depNameTemplate": "cloud-hypervisor"
     },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": [
-        "FIRMWARE_VERSION=(?<currentValue>[0-9.]+)"
-      ],
+      "customType": "regex",
+      "managerFilePatterns": ["/^Dockerfile$/"],
+      "matchStrings": ["FIRMWARE_VERSION=(?<currentValue>[0-9.]+)"],
       "datasourceTemplate": "github-releases",
-      "lookupNameTemplate": "cloud-hypervisor/rust-hypervisor-firmware",
+      "packageNameTemplate": "cloud-hypervisor/rust-hypervisor-firmware",
       "depNameTemplate": "rust-hypervisor-firmware"
     }
   ]
